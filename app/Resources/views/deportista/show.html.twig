@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Deportista</h1>
+
+    <table class="table table-striped table-hover table-bordered">
+        <tbody>
+            <tr>
+                <th>Iddeportista</th>
+                <td>{{ deportistum.iddeportista }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ deportistum.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Nacionalidad</th>
+                <td>{{ deportistum.nacionalidad }}</td>
+            </tr>
+            <tr>
+                <th>Edad</th>
+                <td>{{ deportistum.edad }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ deportistum.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ deportistum.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('deportista_index') }}">Regresar</a>
+        </li>
+        <li>
+            <a href="{{ path('deportista_edit', { 'id': deportistum.iddeportista }) }}">Editar</a>
+        </li>        
+    </ul>
+{% endblock %}

@@ -1,0 +1,69 @@
+app_eventodeportista:
+    resource: "@AppBundle/Controller/EventodeportistaController.php"
+    type:     annotation
+
+
+
+eventodeportista_login:
+    path: login/
+    defaults: {_controller: AppBundle:Eventodeportista:login}
+
+eventodeportista_index:
+    path: eventodeportista/
+    defaults: {_controller: AppBundle:Eventodeportista:index}
+
+eventodeportista_new:
+    path: eventodeportista/new
+    defaults: {_controller: AppBundle:Eventodeportista:new}
+    
+eventodeportista_show:
+    path: eventodeportista/{id}
+    defaults: {_controller: AppBundle:Eventodeportista:show}
+    
+eventodeportista_edit:
+    path: eventodeportista/{id}/edit
+    defaults: {_controller: AppBundle:Eventodeportista:edit}
+
+eventodeportista_delete:
+    path: eventodeportista/{id}/delete
+    defaults: {_controller: AppBundle:Eventodeportista:delete}
+
+deportista_index:
+    path: deportista
+    defaults: {_controller: AppBundle:Deportista:index}
+
+deportista_new:
+    path: deportista/new
+    defaults: {_controller: AppBundle:Deportista:new}
+    
+deportista_show:
+    path: deportista/{id}
+    defaults: {_controller: AppBundle:Deportista:show}
+    
+deportista_edit:
+    path: deportista/{id}/edit
+    defaults: {_controller: AppBundle:Deportista:edit}
+
+deportista_delete:
+    path: deportista/{id}/delete
+    defaults: {_controller: AppBundle:Deportista:delete}
+
+deporte_index:
+    path: deporte
+    defaults: {_controller: AppBundle:Deporte:index}
+
+deporte_new:
+    path: deporte/new
+    defaults: {_controller: AppBundle:Deporte:new}
+    
+deporte_show:
+    path: deporte/{id}
+    defaults: {_controller: AppBundle:Deporte:show}
+    
+deporte_edit:
+    path: deporte/{id}/edit
+    defaults: {_controller: AppBundle:Deporte:edit}
+
+deporte_delete:
+    path: deporte/{id}/delete
+    defaults: {_controller: AppBundle:Deporte:delete}

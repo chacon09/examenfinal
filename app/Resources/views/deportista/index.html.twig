@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Deportista Listado</h1>
+
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Iddeportista</th>
+                <th>Nombre</th>
+                <th>Nacionalidad</th>
+                <th>Edad</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for deportistum in deportistas %}
+            <tr>
+                <td><a href="{{ path('deportista_show', { 'id': deportistum.iddeportista }) }}">{{ deportistum.iddeportista }}</a></td>
+                <td>{{ deportistum.nombre }}</td>
+                <td>{{ deportistum.nacionalidad }}</td>
+                <td>{{ deportistum.edad }}</td>
+                <td>{{ deportistum.telefono }}</td>
+                <td>{{ deportistum.email }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('deportista_show', { 'id': deportistum.iddeportista }) }}">Mostrar</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('deportista_edit', { 'id': deportistum.iddeportista }) }}">Editar</a>
+                        </li>
+                        <li>
+                            <a title="Clic si desea Eliminar" href="{{path('deportista_delete',{"id":deportistum.iddeportista})}}" class="glyphicon glyphicon-trash" onclick="return confirm('¿Está seguro que desea Eliminar?')">Eliminar</a>           
+                        </li> 
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('deportista_new') }}">Nuevo deportista</a>
+        </li>
+    </ul>
+{% endblock %}

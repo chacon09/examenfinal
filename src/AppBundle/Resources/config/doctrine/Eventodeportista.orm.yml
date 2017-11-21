@@ -1,0 +1,64 @@
+AppBundle\Entity\Eventodeportista:
+    type: entity
+    table: eventodeportista
+    indexes:
+        IX_Relationship2:
+            columns:
+                - IdDeporte
+        IX_Relationship1:
+            columns:
+                - IdDeportista
+    id:
+        ideventodeportista:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: IdEventoDeportista
+            generator:
+                strategy: IDENTITY
+    fields:
+        puntaje:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: Puntaje
+        logros:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: true
+            column: Logros
+        rendimiento:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: true
+            column: Rendimiento
+    manyToOne:
+        iddeportista:
+            targetEntity: Deportista
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                IdDeportista:
+                    referencedColumnName: IdDeportista
+            orphanRemoval: false
+        iddeporte:
+            targetEntity: Deporte
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                IdDeporte:
+                    referencedColumnName: IdDeporte
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Deportes</h1>
+
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Iddeporte</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for deporte in deportes %}
+            <tr>
+                <td><a href="{{ path('deporte_show', { 'id': deporte.iddeporte }) }}">{{ deporte.iddeporte }}</a></td>
+                <td>{{ deporte.nombre }}</td>
+                <td>{{ deporte.descripcion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('deporte_show', { 'id': deporte.iddeporte }) }}">Mostrar</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('deporte_edit', { 'id': deporte.iddeporte }) }}">Editar</a>
+                        </li>
+                            <li>
+                            <a title="Clic si desea Eliminar" href="{{path('deporte_delete',{"id":deporte.iddeporte})}}" class="glyphicon glyphicon-trash" onclick="return confirm('¿Está seguro que desea Eliminar?')">Eliminar</a>           
+                        </li> 
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('deporte_new') }}">Nuevo deporte</a>
+        </li>
+    </ul>
+{% endblock %}

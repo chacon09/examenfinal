@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Evento Listado</h1>
+
+   <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Ideventodeportista</th>
+                <th>Puntaje</th>
+                <th>Logros</th>
+                <th>Rendimiento</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for eventodeportistum in eventodeportistas %}
+            <tr>
+                <td><a href="{{ path('eventodeportista_show', { 'id': eventodeportistum.ideventodeportista }) }}">{{ eventodeportistum.ideventodeportista }}</a></td>
+                <td>{{ eventodeportistum.puntaje }}</td>
+                <td>{{ eventodeportistum.logros }}</td>
+                <td>{{ eventodeportistum.rendimiento }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('eventodeportista_show', { 'id': eventodeportistum.ideventodeportista }) }}">Mostrar</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('eventodeportista_edit', { 'id': eventodeportistum.ideventodeportista }) }}">Editar</a>
+                        </li>
+                        <li>
+                            <a title="Clic si desea Eliminar" href="{{path('eventodeportista_delete',{"id":eventodeportistum.ideventodeportista})}}" class="glyphicon glyphicon-trash" onclick="return confirm('¿Está seguro que desea Eliminar?')">Eliminar</a>           
+                        </li> 
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('eventodeportista_new') }}">Crear nuevo evento</a>
+        </li>
+    </ul>
+{% endblock %}

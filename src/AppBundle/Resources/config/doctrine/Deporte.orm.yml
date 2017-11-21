@@ -1,0 +1,29 @@
+AppBundle\Entity\Deporte:
+    type: entity
+    table: deporte
+    id:
+        iddeporte:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: IdDeporte
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: Nombre
+        descripcion:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: Descripcion
+    lifecycleCallbacks: {  }
